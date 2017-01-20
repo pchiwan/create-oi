@@ -32,6 +32,7 @@ export const EVENTS = {
   ANGLE_UPDATED:    'angle',
   BUMP:             'bump',
   BUMP_END:         'bumpend',
+  CLOSE:            'close',
   DISTANCE_UPDATED: 'distance',
   READY:            'ready',
   WHEEL_DROP:       'wheeldrop'

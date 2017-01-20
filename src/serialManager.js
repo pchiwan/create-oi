@@ -29,7 +29,7 @@ class SerialManager {
       this.parse(data);
     });
 
-    this.serial.on('close', function (err) {
+    this.serial.on('close', function () {
       logger('serial port closed', this.verbose);
     });
 
@@ -63,13 +63,10 @@ class SerialManager {
     }
   }
 
-  sendCommand(command, payload) {
-    if (typeof payload === 'undefined') {
-      this.serial.write(new Buffer([command]));
-    } else {
-      this.serial.write(new Buffer([command].concat(payload)));
-    }
-    this.serial.flush();
+  close() {
+    this.serial.close(() => {
+      this.eventEmitter.emit(EVENTS.CLOSE);
+    });
   }
 
   seek(buffer) {
@@ -78,6 +75,15 @@ class SerialManager {
         return i;
     }
     return -1;
+  }
+
+  sendCommand(command, payload) {
+    if (typeof payload === 'undefined') {
+      this.serial.write(new Buffer([command]));
+    } else {
+      this.serial.write(new Buffer([command].concat(payload)));
+    }
+    this.serial.flush();
   }
 
   parse(buffer) {

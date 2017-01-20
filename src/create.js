@@ -137,6 +137,10 @@ class Create {
     this.sendCommand(mode);
   }
 
+  shutdown() {
+    this.serial.close();
+  }
+
   wait(ms = WAIT_MS) {
     this.prior = this.prior.then(() => {
       const deferred = Q.defer();

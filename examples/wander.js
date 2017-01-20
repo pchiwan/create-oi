@@ -1,5 +1,7 @@
 import * as create from 'create-oi';
-import { serialport, SPEED } from './config';
+import { serialport } from './config';
+
+const SPEED = 100; // 100mm/s
 
 const robot = new create.Create({
   serialport
