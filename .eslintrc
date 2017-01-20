@@ -1,0 +1,22 @@
+{
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "env": {
+        "browser": true,
+        "node": true
+      }
+    },
+    "rules": {
+      "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+      "indent": ["error", 2],
+      "comma-spacing": "error",
+      "no-trailing-spaces": "error",
+      "no-var": "error",
+      "prefer-const": "error",
+      "no-unreachable": "error",
+      "no-unused-vars": "error",
+      "no-unused-expressions": "error",
+      "no-undef": "error"
+    }
+}
